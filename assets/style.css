@@ -1,0 +1,170 @@
+/* ============================================================
+   纸上 · ON PAPER — 阅读站样式
+   风格：纸感、留白、衬线 —— 致敬《纽约时报》与《经济学人》
+   ============================================================ */
+
+:root{
+  --paper:        #f6f2e9;
+  --paper-deep:   #eee8da;
+  --ink:          #22201b;
+  --ink-soft:     #4d4840;
+  --muted:        #8b8373;
+  --rule:         #ded5c2;
+  --rule-dark:    #b8ad94;
+  --accent:       #a41e26;
+  --serif: 'Source Serif 4','Noto Serif SC',Georgia,'Songti SC','STSong','SimSun',serif;
+}
+
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  background:var(--paper);
+  color:var(--ink);
+  font-family:var(--serif);
+  font-size:17px;
+  line-height:1.9;
+  -webkit-font-smoothing:antialiased;
+  text-rendering:optimizeLegibility;
+}
+::selection{background:var(--accent); color:#fff}
+a{color:var(--ink)}
+
+/* ---------- 阅读进度条 ---------- */
+.progress{position:fixed; top:0; left:0; height:2px; width:0;
+  background:var(--accent); z-index:120; pointer-events:none}
+
+/* ---------- 页眉 ---------- */
+.site-header{background:var(--paper); z-index:100;
+  border-top:1px solid var(--ink);
+  border-bottom:3px double var(--rule-dark);}
+.site-header.sticky{position:sticky; top:0}
+.header-inner{max-width:66rem; margin:0 auto; padding:.85rem 1.5rem;
+  display:flex; align-items:center; justify-content:space-between; gap:1rem}
+.masthead{display:inline-flex; flex-direction:column; line-height:1.05;
+  text-decoration:none; color:var(--ink)}
+.masthead-zh{font-size:1.5rem; font-weight:700; letter-spacing:.18em; text-indent:.18em}
+.masthead-en{font-size:.6rem; letter-spacing:.5em; text-indent:.5em;
+  color:var(--muted); text-transform:uppercase; margin-top:.32rem}
+.site-nav{display:flex; gap:1.5rem; font-size:.88rem; letter-spacing:.14em}
+.site-nav a{text-decoration:none; color:var(--muted); padding-bottom:2px;
+  border-bottom:1px solid transparent; transition:color .15s}
+.site-nav a:hover{color:var(--ink)}
+.site-nav a.active{color:var(--ink); border-bottom-color:var(--accent)}
+
+/* ---------- 首页 · 报头 ---------- */
+.home-hero{text-align:center; padding:4.6rem 1.5rem 3rem;
+  border-top:1px solid var(--ink); border-bottom:3px double var(--rule-dark)}
+.home-hero .masthead-zh{font-size:4.4rem; font-weight:600; letter-spacing:.26em; text-indent:.26em; line-height:1.1}
+.home-hero .masthead-en{font-size:.85rem; letter-spacing:.62em; text-indent:.62em;
+  color:var(--muted); text-transform:uppercase; margin-top:1.1rem}
+.home-hero .issue{font-size:.76rem; letter-spacing:.42em; text-indent:.42em;
+  color:var(--accent); text-transform:uppercase; margin-top:2.4rem}
+
+.editor-note{max-width:44rem; margin:0 auto; padding:2.4rem 1.5rem 0;
+  text-align:center; color:var(--ink-soft); font-size:.98rem; line-height:2.05}
+
+/* ---------- 首页 · 文章卡片 ---------- */
+.cards{max-width:60rem; margin:0 auto; padding:2.4rem 1.5rem 4.4rem}
+.card{display:grid; grid-template-columns:4.4rem 1fr auto;
+  column-gap:1.8rem; padding:2.7rem 0; border-bottom:1px solid var(--rule); align-items:start}
+.card:last-child{border-bottom:none}
+.card-index{font-family:'Source Serif 4',Georgia,serif; font-style:italic;
+  font-size:1.7rem; color:var(--muted); padding-top:.4rem}
+.card .kicker{margin:0 0 .7rem; font-size:.78rem; letter-spacing:.3em;
+  color:var(--accent); text-transform:uppercase}
+.card h2{margin:0 0 .85rem; font-size:2.1rem; font-weight:600;
+  letter-spacing:.04em; line-height:1.3}
+.card h2 a{color:var(--ink); text-decoration:none; transition:color .15s}
+.card h2 a:hover{color:var(--accent)}
+.card-dek{color:var(--ink-soft); font-size:.98rem; line-height:1.95;
+  margin:0 0 1.15rem; max-width:46rem}
+.card-meta{font-size:.79rem; letter-spacing:.16em; color:var(--muted)}
+.card-link{justify-self:end; align-self:center; font-size:.88rem; letter-spacing:.2em;
+  color:var(--ink); text-decoration:none; border:1px solid var(--rule-dark);
+  padding:.62rem 1.3rem; border-radius:2px; white-space:nowrap;
+  transition:background .18s,color .18s,border-color .18s}
+.card-link:hover{background:var(--accent); border-color:var(--accent); color:#fff}
+
+/* ---------- 文章页 ---------- */
+.article-wrap{max-width:44rem; margin:0 auto; padding:0 1.5rem}
+.article-header{text-align:center; padding:3.6rem 0 2.7rem;
+  border-bottom:1px solid var(--rule); margin-bottom:2.9rem}
+.article-header .kicker{margin:0 0 1.4rem; font-size:.8rem; letter-spacing:.36em;
+  color:var(--accent); text-transform:uppercase}
+.article-header h1{margin:0 0 1.5rem; font-size:2.75rem; font-weight:600;
+  letter-spacing:.05em; line-height:1.25}
+.article-header .dek{margin:0 auto; font-size:1.05rem; color:var(--ink-soft);
+  line-height:2.05; max-width:37rem}
+.article-header .meta{display:flex; flex-wrap:wrap; gap:.9rem 2rem; justify-content:center;
+  margin-top:1.9rem; font-size:.78rem; letter-spacing:.16em; color:var(--muted)}
+.article-header .meta span{white-space:nowrap}
+
+.prose p{margin:0 0 1.65em; text-align:justify; text-justify:inter-ideograph}
+.prose .drop::first-letter{float:left; font-size:3.15em; line-height:.82;
+  padding:.07em .15em 0 0; font-weight:600}
+.prose .closing{margin-top:2.6em; padding-top:1.4em; border-top:1px solid var(--rule);
+  font-size:1.08em; color:var(--ink); letter-spacing:.02em}
+.prose h2{font-size:1.5rem; font-weight:600; letter-spacing:.05em;
+  margin:3.4em 0 1.2em; padding-top:1.15em; border-top:1px solid var(--rule)}
+.prose h2::before{content:""; display:block; width:2.4rem; height:2px;
+  background:var(--accent); margin-bottom:.7em}
+.prose h3{font-size:1.18rem; font-weight:600; letter-spacing:.07em;
+  margin:2.6em 0 .95em}
+.prose blockquote{margin:2.4em 0; padding:.35em 0 .35em 1.7em;
+  border-left:2px solid var(--accent); color:var(--ink-soft); font-size:1.02em; line-height:2.05}
+.prose blockquote p{margin:0 0 .6em; text-align:left}
+.prose blockquote p:last-child{margin:0}
+.prose blockquote cite{display:block; margin-top:.9em; font-size:.82rem;
+  font-style:normal; letter-spacing:.14em; color:var(--muted); text-align:right}
+
+ol.kant, ol.features{list-style:none; counter-reset:item; margin:0 0 1.65em; padding:0}
+ol.kant li, ol.features li{counter-increment:item; position:relative;
+  padding-left:2.9em; margin:0 0 1.15em}
+ol.kant li::before, ol.features li::before{
+  content:"0" counter(item);
+  position:absolute; left:0; top:.14em;
+  font-family:'Source Serif 4',Georgia,serif; font-style:italic;
+  color:var(--muted); font-size:1.05em}
+ol.features li{margin-bottom:1.7em}
+ol.features .li-main{display:block}
+ol.features .li-sub{display:block; margin-top:.42em; color:var(--muted); font-size:.93em}
+
+.divider{text-align:center; margin:3.6em 0; color:var(--muted);
+  font-size:.9rem; letter-spacing:1.2em; text-indent:1.2em}
+
+.next-article{display:flex; align-items:baseline; justify-content:space-between;
+  gap:1rem; margin:4.2em 0 0; padding:1.7em 0 3.2em; border-top:1px solid var(--rule)}
+.next-label{font-size:.78rem; letter-spacing:.32em; color:var(--muted); text-transform:uppercase}
+.next-link{font-size:1.35rem; font-weight:600; letter-spacing:.06em;
+  color:var(--ink); text-decoration:none; transition:color .15s}
+.next-link:hover{color:var(--accent)}
+
+/* ---------- 页脚 ---------- */
+.site-footer{text-align:center; padding:2.7rem 1.5rem 3.1rem; border-top:1px solid var(--rule)}
+.footer-mast{font-weight:700; letter-spacing:.26em; text-indent:.26em; font-size:1.05rem}
+.footer-mast em{display:block; font-style:normal; font-weight:400; font-size:.6rem;
+  letter-spacing:.5em; text-indent:.5em; color:var(--muted); margin-top:.45rem; text-transform:uppercase}
+.footer-note{margin:1rem 0 0; font-size:.79rem; letter-spacing:.22em; color:var(--muted)}
+
+/* ---------- 响应式 ---------- */
+@media (max-width:760px){
+  body{font-size:16px}
+  .header-inner{flex-direction:column; align-items:center; gap:.55rem; padding:.8rem 1rem}
+  .home-hero{padding:3rem 1rem 2.2rem}
+  .home-hero .masthead-zh{font-size:3rem}
+  .article-header h1{font-size:2.05rem}
+  .card{grid-template-columns:1fr; gap:.55rem; padding:2.1rem 0}
+  .card-index{display:none}
+  .card h2{font-size:1.75rem}
+  .card-link{justify-self:start; margin-top:.5rem}
+  .next-article{flex-direction:column; align-items:flex-start; gap:.6rem}
+}
+
+/* ---------- 打印 ---------- */
+@media print{
+  body{background:#fff; color:#000; font-size:12pt}
+  .progress,.site-header,.site-footer,.next-article{display:none !important}
+  .article-header{border-color:#000}
+  a{color:#000; text-decoration:none}
+}
